@@ -2,7 +2,7 @@
   "name": "kcb.blackjack",
   "version": "1.0.0",
   "description": "An online black jack game built with express",
-  "author": "KCB",
+  "author": "Carson Keene, Sean Cummings, Robert Baxter",
   "license": "ISC",
   "scripts": {
     "start": "node index.js"
