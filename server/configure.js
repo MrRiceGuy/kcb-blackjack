@@ -18,7 +18,6 @@ module.exports = function(app){
 	routes(app);
 
 	app.use('/public/', express.static(path.join(__dirname, '../public')));
-
 	
 	app.engine('handlebars', exphbs.create({
 		defaultLayout: 'main',
