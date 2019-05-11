@@ -28,11 +28,11 @@ module.exports = {
                 connection.query(sql, function(exception, results){
                     connection.end();
                     callback(CreateSqlResponse(exception 
-                        ? sqlConstants.Error : sqlConstants.Success, exception, results));
+                        ? false : true, exception, results));
                 });
             });
         }catch(exception){
-            callback(CreateSqlResponse(sqlConstants.Error, exception));
+            callback(CreateSqlResponse(false, exception));
         }
     }
 }
@@ -55,9 +55,9 @@ function GetConnection(callback){
     callback(connection);
 }
 
-function CreateSqlResponse(status, exceptions, results){
+function CreateSqlResponse(success, exceptions, results){
     return {
-        status : status,
+        success : success,
         exceptions : exceptions,
         results : results
     }

@@ -8,6 +8,5 @@ module.exports = {
     From : "FROM",
     Where : "WHERE",
     And : "AND",
-    Error : "ERROR",
-    Success : "SUCCESS"
+    Error : "ERROR"
 }
