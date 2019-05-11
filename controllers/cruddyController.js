@@ -39,5 +39,15 @@ module.exports = {
         }, function(response){
             res.send(response);
         });
+    },
+    CruddyUpdate : function(req, res){
+        cruddy.Update('people', {
+            first_name : req.body.firstName,
+            last_name : req.body.lastName
+        }, {
+            id : req.body.id
+        },function(response){
+            res.send(response)
+        });
     }
 }

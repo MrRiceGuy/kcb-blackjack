@@ -15,7 +15,7 @@ module.exports = function(app){
 	router.get('/test-cruddy-insert', cruddy.CruddyInsert);
 
 	/* cruddy update/delete testing */
-	//router.post('/test-cruddy-update', cruddy.CruddyUpdate);
+	router.post('/test-cruddy-update', cruddy.CruddyUpdate);
 	router.post('/test-cruddy-delete', cruddy.CruddyDelete);
 
 	app.use(router);

@@ -68,7 +68,42 @@ module.exports = {
             sql += ` ${constraintArray.join(` ${sqlConstants.And} `)}`;
             sql = mysql.format(sql, values);
         }
+
+        try{
+            GetConnection(function(connection){
+                connection.query(sql, function(exception){
+                    connection.end();
+                    callback(CreateSqlResponse(!exception, exception));
+                });
+            });
+        }catch(exception){
+            callback(false, exception);
+        }
+    },
+    Update : function(table, sets, constraints, callback){
+        var sql = `${sqlConstants.Update} ${table} ${sqlConstants.Set}`;
         
+        var setArray = [];
+        var values = [];
+        
+        for(var key in sets){
+            setArray.push(`${key} = ?`);
+            values.push(sets[key]);
+        }
+
+        sql += ` ${setArray.join(',')} `
+
+        if(utility.IsValid(constraints)){
+            var constraintArray = [];
+            for (var key in constraints){
+                constraintArray.push(`${key} = ?`);
+                values.push(constraints[key]);
+            }   
+
+            sql += ` ${sqlConstants.Where} ${constraintArray.join(sqlConstants.And)}`
+        }
+
+        sql = mysql.format(sql, values);
         try{
             GetConnection(function(connection){
                 connection.query(sql, function(exception){
