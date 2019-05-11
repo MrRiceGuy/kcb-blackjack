@@ -34,6 +34,51 @@ module.exports = {
         }catch(exception){
             callback(CreateSqlResponse(false, exception));
         }
+    },
+    Insert : function(table, values, columns, callback){
+        var valueArray = [];
+        for(var i = 0; i < columns.length; i++){
+            valueArray.push('?');
+        }
+
+        var sql = `${sqlConstants.Insert} ${sqlConstants.Into} ${table} (${columns.join(',')}) ${sqlConstants.Values} (${valueArray.join(',')});`;
+        sql = mysql.format(sql, values);
+        try{
+            GetConnection(function(connection){
+                connection.query(sql, function(exception){
+                    connection.end();
+                    callback(CreateSqlResponse(!exception, exception));
+                });
+            });
+        }catch(exception){
+            callback(false, exception);
+        }
+    },
+    Delete : function(table, constraints, callback){
+        var sql = `${sqlConstants.Delete} ${sqlConstants.From} ${table} ${sqlConstants.Where}`;
+        
+        var constraintArray = [];
+        var values = [];
+        for (var key in constraints){
+            constraintArray.push(`${key} = ?`);
+            values.push(constraints[key]);
+        }
+
+        if(constraintArray.length > 0){
+            sql += ` ${constraintArray.join(` ${sqlConstants.And} `)}`;
+            sql = mysql.format(sql, values);
+        }
+        
+        try{
+            GetConnection(function(connection){
+                connection.query(sql, function(exception){
+                    connection.end();
+                    callback(CreateSqlResponse(!exception, exception));
+                });
+            });
+        }catch(exception){
+            callback(false, exception);
+        }
     }
 }
 

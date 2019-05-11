@@ -8,7 +8,8 @@ var routes = require('./routes'),
 module.exports = function(app){
 
 	app.use(bodyParser.urlencoded({'extended':false}));
-		
+	app.use(bodyParser.json());
+	
 	app.use(session({
 	  secret: 'robssecret',
 	  resave: false,
