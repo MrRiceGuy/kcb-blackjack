@@ -1,0 +1,20 @@
+{
+  "name": "kcb.blackjack",
+  "version": "1.0.0",
+  "description": "An online black jack game built with express",
+  "author": "Carson Keene, Sean Cummings, Robert Baxter",
+  "license": "ISC",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "express-session": "^1.16.1",
+    "forever": "^1.0.0",
+    "handlebars": "^4.1.2",
+    "mysql": "^2.17.1",
+    "path": "^0.12.7"
+  }
+}
