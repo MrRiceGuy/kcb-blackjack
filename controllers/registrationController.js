@@ -1,5 +1,5 @@
 module.exports = {
     RenderView : function(req, res){
-        res.render('registration', {});
+        res.render('register_new_user', {});
     }
 }
