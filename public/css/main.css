@@ -1,0 +1,185 @@
+/*CSS for Cards*/
+
+.greeting{
+
+    text-align: center;
+    width: 80%vw;
+    height: 300px;
+}
+
+p{
+    display: inline-block;
+    position: relative;
+    float: left;
+}
+
+#formdiv{
+    height: 638px;
+    width: 430px;
+    background-color: #d8e8e6;
+    padding: 15px;
+    display: inline-block;
+    position: relative;
+    margin: 0 auto;
+    left: 25%;
+    border-radius: 10px;
+    border: 2px solid #858181;
+}
+
+#formdiv h3{
+
+display: inline-block;
+
+/* float: left; */
+
+font: normal normal normal 121%/3em Arial, sans-serif;
+
+margin: 20px 15px 0 0;
+}
+
+#formdiv input[type="text"]{
+    width: 266px;
+    height: 28px;
+    border: 1px solid #6e6e6e;
+    border-radius: 2px;
+    float: right;
+    margin: 34px 18px 0 0;
+}
+
+
+form{
+    height:700px;
+}
+
+form h4{
+
+font: normal bold normal 137%/2em Helvetica sans-serif;
+
+margin:  0 auto;
+
+display: block;
+
+position:  relative;
+
+text-align: center;
+}
+
+#submitButton{
+    height: 30px;
+    width: 92px;
+    border-radius: 8px;
+    background-color: #4dbb91;
+    font: normal normal normal 115%/1.2em Helvetica, sans-serif;
+    display: block;
+    margin: 0 auto;
+    /* margin-top: 37px; */
+    padding:  0;
+    border: 2px solid #6f5f5f;
+    /* left: 12px; */
+    position: relative;
+    top: 38px;
+    /* float: right; */
+}
+
+.wrapper h1{
+height: 80px;
+width: 800px;
+background-color: #fbfdf0;
+text-align: center;
+font: normal normal normal 150%/3em Arial, sans-serif;
+display: inline-block;
+margin: 0 auto;
+}
+
+.wrapper h2{
+    width: 800px;
+    display: inline-block;
+    font: normal normal normal 140%/2em Helvetica, sans-serif;
+    text-align: center;
+}
+
+#dobset{
+
+display: inline-block;
+
+height: 50px;
+
+width: 305px;
+
+float: right;
+
+margin-top: 8px;
+}
+
+#dobset h3{
+
+    font: normal normal normal 80%/2em Times new-roman; 
+}
+#dobset select{
+
+margin: 20px 16px 0 16px;
+
+border: 1px solid #8a8787;
+border: radius 3px;
+}
+
+#dobset select, #dobset p{
+    display: inline-block;
+    float: left;
+    font: normal normal normal 102%/1.6em Helvetica, Sans-serif;
+    margin: 30px 4px;
+}
+
+.card{
+    height: 200px;
+    width: 150px;
+    border-radius: 3px;
+    border: 2px solid black;
+    background-color: #c9c1c1;
+}
+
+.card .spades{
+    height: 20px;
+    width: 20px;
+    display: block;
+    background-color: #837171;
+
+}
+
+.card .clubs{
+    height: 20px;
+    width: 20px;
+    display: block;
+    background-color: #0e0b0b;
+
+}
+
+.card .hearts{
+    height: 20px;
+    width: 20px;
+    display: block;
+    background-color: #f18585;
+
+}
+
+.card .diamonds{
+    height: 20px;
+    width: 20px;
+    display: block;
+    background-color: #134f86;
+
+}
+
+.card .value{
+    height: 10px;
+    width: 10px;
+    display:block;
+    background-color: #4d662c;
+}
+#displayArea{
+
+    height: 700px;
+    width: 1200px;
+    border: 1px solid  #333333;
+    overflow: scroll;
+}
