@@ -3,9 +3,16 @@ module.exports = {
         res.render('registration', {});
     },
     RegisterNewUser : function(req, res){
-        res.send({
-            message : 'received new user info',
-            user : req.body
-        });
+
+        // fake successful response
+        var dummyResponse = {
+            success : true,
+            exceptions : undefined,
+            messages : ['successfully hit register end point'],
+            results : [req.body]
+        }
+
+        // sending back dummy response for testing ajax posts
+        res.send(dummyResponse);
     }
 }
