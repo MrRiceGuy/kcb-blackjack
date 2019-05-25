@@ -8,13 +8,17 @@ module.exports = {
     },
     RegisterNewUser : function(req, res){
         try{
-            var user = req.body;
-            passwordService.GenerateNewPassword(user.password, function(hash){
-                user.password = hash;
-                registrationService.RegisterNewUser(user, function(response){
-                    res.send(response);
+            if(utility.ValidateUser(req.body)){
+                var user = req.body;
+                passwordService.GenerateNewPassword(user.password, function(hash){
+                    user.password = hash;
+                    registrationService.RegisterNewUser(user, function(response){
+                        res.send(response);
+                    });
                 });
-            });
+            }else{
+                res.send(utility.CreateErrorResponse("invalid user data entered"));
+            }
         }
         catch(exception){
             res.send(utility.CreateErrorResponse(exception));
