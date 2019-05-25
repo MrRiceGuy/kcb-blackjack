@@ -1,8 +1,9 @@
 var cruddy = require('cruddy-orm');
+var utility = require('./utility.js');
 
 module.exports = {
     RegisterNewUser : function(user, res, callback){
-        if(!(validateUser(user)) || !isValid(res))
+        if(!(utility.ValidateUser(user)) || !utility.IsValid(res))
             throw "Invalid user entered";
         
         cruddy.Insert('users', 
@@ -11,21 +12,7 @@ module.exports = {
             function(response){
                 callback(response);
         });
-        
     }
-}
-
-function validateUser(user){
-    return isValid(user) 
-        && isValid(user.firstName) 
-        && isValid(user.lastName) 
-        && isValid(user.email) 
-        && isValid(user.password) 
-        && isValid(user.username);
-}
-
-function isValid(data){
-    return data !== null && data !== undefined && data !== "";
 }
 
 function generateUserId(){

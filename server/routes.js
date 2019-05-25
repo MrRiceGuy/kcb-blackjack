@@ -1,6 +1,7 @@
 var express = require('express'),
 	router = express.Router(),
 	registration = require('../controllers/registrationController'),
+	login = require('../controllers/loginController'),
 	cruddy = require('../controllers/cruddyController');
 
 module.exports = function(app){
@@ -9,6 +10,7 @@ module.exports = function(app){
 
 	/* render actions */
 	router.post('/register-new-user', registration.RegisterNewUser);
+	router.post('/login', login.Login);
 
 	/* cruddy select testing */
 	router.get('/test-cruddy-select-all', cruddy.CruddySelectAll);
