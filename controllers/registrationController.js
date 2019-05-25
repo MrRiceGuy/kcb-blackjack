@@ -11,7 +11,7 @@ module.exports = {
             var user = req.body;
             passwordService.GenerateNewPassword(user.password, function(hash){
                 user.password = hash;
-                registrationService.RegisterNewUser(user, res, function(response){
+                registrationService.RegisterNewUser(user, function(response){
                     res.send(response);
                 });
             });

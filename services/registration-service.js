@@ -2,8 +2,8 @@ var cruddy = require('cruddy-orm');
 var utility = require('./utility.js');
 
 module.exports = {
-    RegisterNewUser : function(user, res, callback){
-        if(!(utility.ValidateUser(user)) || !utility.IsValid(res))
+    RegisterNewUser : function(user, callback){
+        if(!(utility.ValidateUser(user)))
             throw "Invalid user entered";
         
         cruddy.Insert('users', 
