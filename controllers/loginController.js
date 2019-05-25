@@ -13,12 +13,20 @@ module.exports = {
                     var user = selectResponse.results[0];
                     passwordService.CheckPassword(req.body.password, user.password, function(validPassword){
                         if(validPassword)
-                            res.send(selectResponse);
+                            req.session.regenerate(function(error){
+                                if(error)
+                                    throw error;
+                                
+                                req.session.logged = true;
+                                req.session.user = user;
+
+                                res.send(selectResponse);
+                            });
                         else   
-                            res.send(utility.CreateErrorResponse("Invalid Credentials"));
+                            throw "Invalid Credentials";
                     });
                 }else{
-                    res.send(utility.CreateErrorResponse("Invalid Credentials"));
+                    throw "Invalid Credentials";
                 }
             });
         }
