@@ -7,6 +7,9 @@ module.exports = function(app){
 	/* render views */
 	router.get('/', registration.RenderView);
 
+	/* render actions */
+	router.post('/register-new-user', registration.RegisterNewUser);
+
 	/* cruddy select testing */
 	router.get('/test-cruddy-select-all', cruddy.CruddySelectAll);
 	router.get('/test-cruddy-select-one', cruddy.CruddySelectOne);
