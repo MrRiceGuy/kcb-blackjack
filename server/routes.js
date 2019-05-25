@@ -6,6 +6,7 @@ var express = require('express'),
 module.exports = function(app){
 	/* render views */
 	router.get('/register-new-user', registration.RenderView);
+	router.get('/login', login.RenderView);
 
 	/* render actions */
 	router.post('/register-new-user', registration.RegisterNewUser);
