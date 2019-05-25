@@ -1,4 +1,4 @@
-var cruddy = require('../framework/cruddy-main');
+var cruddy = require('cruddy-orm');
 
 module.exports = {
     CruddySelectAll : function(req, res){
