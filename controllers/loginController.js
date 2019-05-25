@@ -9,13 +9,17 @@ module.exports = {
     Login : function(req, res){
         try{
             loginService.Login(req.body, function(selectResponse){
-                var user = selectResponse.results[0];
-                passwordService.CheckPassword(req.body.password, user.password, function(isUser){
-                    if(isUser)
-                        res.send(selectResponse);
-                    else   
-                        res.send(utility.CreateErrorResponse("Invalid Credentials"));
-                });
+                if(selectResponse.success && selectResponse.results.length > 0){
+                    var user = selectResponse.results[0];
+                    passwordService.CheckPassword(req.body.password, user.password, function(validPassword){
+                        if(validPassword)
+                            res.send(selectResponse);
+                        else   
+                            res.send(utility.CreateErrorResponse("Invalid Credentials"));
+                    });
+                }else{
+                    res.send(utility.CreateErrorResponse("Invalid Credentials"));
+                }
             });
         }
         catch(exception){
