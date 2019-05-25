@@ -7,8 +7,8 @@ module.exports = {
             throw "Invalid user entered";
         
         cruddy.Insert('users', 
-            [generateUserId(), user.firstName, user.lastName, user.email, user.username, user.password], 
-            ['id', 'first_name', 'last_name', 'email', 'username', 'password'], 
+            [generateUserId(), user.firstName, user.lastName, user.email, user.username, user.birthdate, user.password], 
+            ['id', 'first_name', 'last_name', 'email', 'username', 'birthdate', 'password'], 
             function(response){
                 callback(response);
         });
