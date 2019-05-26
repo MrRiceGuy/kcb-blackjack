@@ -1,6 +1,8 @@
 var cruddy = require('cruddy-orm');
 var moment = require('moment');
 var utility = require('./utility.js');
+var emailService = require('./email-service.js');
+var url = require('../environment.json').url;
 
 module.exports = {
     RegisterNewUser : function(user, callback){
@@ -13,11 +15,17 @@ module.exports = {
             ['id', 'first_name', 'last_name', 'email', 'username', 'birthdate', 'password'], 
             function(response){
                 if(response.success){
+                    var confirmationCode = generateCode('xxxxxx');
                     cruddy.Insert('user_code', 
-                        [userid, generateCode('xxxxxx'), moment().format('YYYY-MM-DD HH:mm:ss')], 
+                        [userid, confirmationCode, moment().format('YYYY-MM-DD HH:mm:ss')], 
                         ['account_id', 'code', 'date'], 
                         function(response){
-                            callback(response);
+                            if(response.success){
+                                emailService.SendEmail(user.email, 'Thank You For Registering', 
+                                `To complete your registration, go to http://${url}:3000/confirm-registration and enter code ${confirmationCode}.`)
+                            }
+
+                           callback(response);
                         });
                 }
         });
