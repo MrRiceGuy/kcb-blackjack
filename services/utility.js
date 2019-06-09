@@ -1,6 +1,5 @@
 module.exports = {
     ValidateUser : function(user){
-        console.log(`validating ${user}`);
         return this.IsValid(user) 
             && this.IsValid(user.firstName) 
             && this.IsValid(user.lastName) 

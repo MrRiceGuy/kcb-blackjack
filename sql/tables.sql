@@ -13,3 +13,11 @@ CREATE TABLE users(
         password varchar(255) not null,
         email varchar(50) not null
 )
+
+CREATE TABLE user_code(
+	id int primary key auto_increment not null,
+    date datetime not null,
+    account_id varchar(50) not null,
+    code varchar(6) not null,
+    FOREIGN KEY (account_id) REFERENCES users(id)
+)
