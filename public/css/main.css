@@ -5,7 +5,7 @@
     height: 300px;
 }
 
-p{
+.article-main{
     display: inline-block;
     position: relative;
     float: left;
