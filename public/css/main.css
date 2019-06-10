@@ -11,7 +11,7 @@
     float: left;
 }
 
-#formdiv{
+#form-div{
     height: 638px;
     width: 430px;
     background-color: #d8e8e6;
@@ -24,13 +24,13 @@
     border: 2px solid #858181;
 }
 
-#formdiv h3{
+#form-div h3{
     display: inline-block;
     font: normal normal normal 121%/3em Arial, sans-serif;
     margin: 20px 15px 0 0;
 }
 
-#formdiv input[type="text"]{
+#form-div input[type="text"]{
     width: 266px;
     height: 28px;
     border: 1px solid #6e6e6e;
@@ -52,7 +52,7 @@ form h4{
     text-align: center;
 }
 
-#submitButton{
+#submit-button{
     height: 30px;
     width: 92px;
     border-radius: 8px;
