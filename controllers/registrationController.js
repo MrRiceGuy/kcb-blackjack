@@ -10,6 +10,7 @@ module.exports = {
         try{
             if(utility.ValidateUser(req.body)){
                 var user = req.body;
+                console.log(user);
                 passwordService.GenerateNewPassword(user.password, function(hash){
                     user.password = hash;
                     registrationService.RegisterNewUser(user, function(response){

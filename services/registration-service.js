@@ -8,12 +8,13 @@ module.exports = {
     RegisterNewUser : function(user, callback){
         if(!(utility.ValidateUser(user)))
             throw "Invalid user entered";
-        
+
         var userid = generateCode('xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx');
         cruddy.Insert('users', 
             [userid, user.firstName, user.lastName, user.email, user.username, user.birthdate, user.password], 
             ['id', 'first_name', 'last_name', 'email', 'username', 'birthdate', 'password'], 
             function(response){
+                console.log(response);
                 if(response.success){
                     var confirmationCode = generateCode('xxxxxx');
                     cruddy.Insert('user_code', 
